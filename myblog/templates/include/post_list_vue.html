@@ -5,16 +5,27 @@
         delimiters: ['[[',']]'], //Vue랑 Django 템플릿 충돌 방지
         data() {
             return {
-                postList: [] // Post 목록 데이터를 저장할 변수
+                postList: [], // Post 목록 데이터를 저장할 변수
+                category: '',
+                tag: '',
             };
         },
         created(){
             console.log("created()...");
+            const params = new URL(location).searchParams;
+            this.category = params.get('category');
+            this.tag = params.get('tag');
             this.fetchPostList()
         },
         methods: {
             fetchPostList() {
-                axios.get('/api/post/list')
+                console.log("fetchPostList()...", this.category, this.tag);
+                let getUrl= ' ';
+                if (this.category) getUrl=`/api/post/list/?category=${this.category}`;
+                else if (this.tag) getUrl=`/api/post/list/?tag=${this.tag}`;
+                else getUrl = `/api/post/list`
+
+                axios.get(getUrl)
                 .then(res => {
                     console.log("FETCH POSTLIST GET RES", res);
                     this.postList = res.data;
@@ -24,7 +35,6 @@
                     alert(`${err.response.status}${err.response.statusText}`);
                 });
             },
-
         },
     };
 

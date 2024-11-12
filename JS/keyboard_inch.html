@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inchInput"> inch
+    <button id="convertButton">계산</button>
+    <p id="result"></p>
+
+    <script>
+        // 변환 공식 : inch * 2.54 => cm
+        const inchInput = document.getElementById('inchInput');
+        const convertButton = document.getElementById('convertButton');
+        const result = document.getElementById('result');
+
+        convertButton.addEventListener('click', function() {
+            const inchValue = inchInput.value;
+            // 인치를 센티미터로 변환
+            const cmValue = inchValue * 2.54;
+            // 결과 표시
+            result.textContent = `${inchValue} Inch는 ${cmValue} CM SKRR 입니다.`;
+        });
+    </script>
+    
+</body>
+</html>

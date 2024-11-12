@@ -1,7 +1,5 @@
 from django.db import models
-
 # Create your models here.
-
 # 게시글 
 class Post(models.Model):
     # FK(Foreign Key)
@@ -35,7 +33,7 @@ class Tag(models.Model):
         return self.name
     
 ## 댓글
-class comment(models.Model):
+class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField('CONTENT')
     create_date = models.DateTimeField('CREATE DT', auto_now_add=True)

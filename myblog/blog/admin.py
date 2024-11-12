@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
-from .models import Post, Category, Tag, comment
+from .models import Post, Category, Tag, Comment
 
 
 
@@ -25,6 +25,6 @@ class CategoryAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
 
-@admin.register(comment)
+@admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('id', 'post', 'short_content', 'create_date', 'update_date')

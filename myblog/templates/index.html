@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}index.html{% endblock %}
-{% block extra-style %}
+
+{% block extra-style%}
 <style>
     .my-img-h300 {
         width: 100%;
@@ -19,11 +20,12 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">SK T1(legue of legend)</h2>
-                    <h3 class="section-subheading text-muted">Sk T1을 소개합니다!</h3>
+                    <h2 class="section-heading text-uppercase">SK T1 Blog</h2>
+                    <h3 class="section-subheading text-muted">Congratulations on winning T1</h3>
                 </div>
                 <div class="row">
                     <div v-for="post in postList" :key="post.id" class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
                         <div class="portfolio-item">
                             <a class="portfolio-link" :href="`/blog/post/${post.id}/#post`">
                                 <div class="portfolio-hover">
@@ -32,28 +34,28 @@
                                 <img class="img-fluid my-img-h300" :src="post.image" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-subheading text-muted">[[ post.category ]]</div>
                                 <div class="portfolio-caption-heading my-post-title">[[ post.title ]]</div>
+                                <i class="fas fa-heart text-danger"></i> [[ post.like ]]
+                                <div class="portfolio-caption-subheading text-muted">[[ post.category ]]</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </section>
         <!-- Team-->
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">SK T1</h2>
-                    <h3 class="section-subheading text-muted">My Favorite Team</h3>
+                    <h2 class="section-heading text-uppercase">SK T1에 대해 소개합니다!</h2>
+                    <h3 class="section-subheading text-muted">리그오브레전드</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/GPdbQgCbQAAwBes (1).jpg'%}" alt="..." />
+                            <img class="mx-auto rounded-circle" src="{% static '2023112001001310400056341.jpg' %}" alt="..." />
                             <h4>SK T1</h4>
-                            <p class="text-muted">Leader:Faker</p>
+                            <p class="text-muted">Leader Faker</p>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
@@ -61,40 +63,27 @@
                     </div>
                     <div class="col-lg-8">
                         <div>
-                            <p class=fs-2 fw-bold>
-                               [ SK T1 member ]
+                            <p class="fs-1 fw-bolder">
+                                24년 월즈 우승!
                             </p>
-                            <p class="fs-4">
-                                Top:제우스 JG:오너 MID:페이커 AD:구마유시 SUP:케리아
+                            <p class="fs-5">
+                                Faker의 4,5세트 미친 케리
+                            </p> 
+                            <p class="fs-1 fw-bolder">
+                                Faker
                             </p>
-                            <p class=fs-2 fw-bold>
-                               [ T1 월즈 우승 ]
+                            <p class="fs-5">
+                                월즈 5회 우승 
                             </p>
-                            <p class="fs-4">
-                                페이커 월즈 5회 우승 축하합니다!
-                            </p>
-                        소개 내용: 페이커의 하드케리
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"> 그는 어디까지 갈 생각인가....</p></div>
                 </div>
             </div>
         </section>
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-                </form>
-            </div>
-        </section>
+        </div>
         {% endblock %}
         {% block footer %}
         <!-- Footer-->
@@ -115,6 +104,7 @@
             </div>
         </footer>
         {% endblock %}
+
         {% block extra-script %}
-        {% include 'include/post_list_vue.html' %}
+        {% include 'include/post_list_vue.html'%}
         {% endblock %}
