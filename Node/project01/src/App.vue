@@ -2,7 +2,13 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/test">List</router-link>
+    <!-- <router-link to="/binding">Binding</router-link> |
+    <router-link to="/calculator">Calculator</router-link> | -->
+    <!-- <router-link to="/click">Event</router-link> -->
+    <router-link to="/computed">Computed</router-link> |
+    <router-link to="/show">Show</router-link> 
+    
+
   </nav>
   <router-view/>
 </template>
