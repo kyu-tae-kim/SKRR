@@ -81,6 +81,21 @@ component: () => import(/* webpackChunkName: "databinding" */ '../views/DataBind
       path: '/watch',
       name: 'watch',
       component: () => import(/* webpackChunkName: "extra" */ '../views/Extra/WatchView.vue')
+      },
+      {    
+      path: '/hook',
+      name: 'hook',
+      component: () => import(/* webpackChunkName: "extra" */ '../views/Extra/LifecycleHookView.vue')
+      },  
+      {    
+      path: '/page',
+      name: 'page',
+      component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/PageView.vue')
+      }, 
+      {    
+        path: '/parent',
+        name: 'parent',
+        component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/ParentView.vue')
       }, 
 ]
 

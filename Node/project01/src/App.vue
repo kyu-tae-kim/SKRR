@@ -6,7 +6,10 @@
     <router-link to="/calculator">Calculator</router-link> | -->
     <!-- <router-link to="/click">Event</router-link> -->
     <router-link to="/computed">Computed</router-link> |
-    <router-link to="/show">Show</router-link> 
+    <router-link to="/watch">Watch</router-link> |
+    <!-- <router-link to="/lifecyclehook">LifecycleHook</router-link> | -->
+    <router-link to="/page">Page</router-link> |
+    <router-link to="/parent">Parent</router-link> 
     
 
   </nav>
