@@ -1,5 +1,6 @@
 <template>
 <div>
+    <p>{{ childData }}</p>
     <p>{{str}}</p>
     <p>{{num}}</p>
     <p>{{bool}}</p>
@@ -49,16 +50,27 @@ export default{
     data(){
         return{
             sampleData:'',
-            selectedNum: 0
+            selectedNum: 0,
+            childData : '이 데이터는 자식컴포넌트에서 전달된 데이터입니다.'
         };
+    },
+    computed : {
+        computedMethod() {
+            console.log('Computed Method')
+        },
     },
     setup(){},
     created(){},
-    mounted(){},
+    mounted(){
+        this.$emit('child-send', this.childData)
+    },
     unmounted(){},
     methods:{
         callParent() {
             this.$emit('change-num', this.selectedNum)
+        },
+        childPrint() {
+            console.log(this.childData)
         }
     }
 }

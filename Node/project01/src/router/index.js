@@ -93,9 +93,9 @@ component: () => import(/* webpackChunkName: "databinding" */ '../views/DataBind
       component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/PageView.vue')
       }, 
       {    
-        path: '/parent',
-        name: 'parent',
-        component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/ParentView.vue')
+        path: '/grid',
+        name: 'grid',
+        component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/GridView.vue')
       }, 
 ]
 

@@ -9,7 +9,7 @@
     <router-link to="/watch">Watch</router-link> |
     <!-- <router-link to="/lifecyclehook">LifecycleHook</router-link> | -->
     <router-link to="/page">Page</router-link> |
-    <router-link to="/parent">Parent</router-link> 
+    <router-link to="/grid">Grid</router-link> 
     
 
   </nav>
