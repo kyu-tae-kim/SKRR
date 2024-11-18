@@ -12,13 +12,19 @@
                 <th v-show="selectedData === 'all'">
                     <input type="checkbox" name="" id="">
                 </th>
+                <th v-show="selectedData === 'high'">
+                    <input type="radio" name="" id="">
+                </th>
                 <th v-for="col in headers" :key="col">{{ col.title }}</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="(item, i) in items" :key="i">
                 <th v-show = "selectedData === 'all'">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="" @change="selectedCheck" :value=item.exchange v-model="checkedItems" >
+                </th>
+                <th v-show = "selectedData === 'high'">
+                    <input type="radio" name="" id="" @change="selectedCheck" :value=item.exchange v-model="checkedItems" >
                 </th>
                 <th v-for="col in headers" :key="col.key">{{item[col.key]}}</th>
             </tr>
@@ -51,6 +57,7 @@ export default{
         return{
             sampleData: '',
             selectedData: 'all',
+            checkedItems:[],
         };
     },
     setup(){},
@@ -60,6 +67,9 @@ export default{
     methods:{
         diffChange() {
                 this.$emit("diff-change", this.selectedData)
+        },
+        selectedCheck(){
+            this.$emit('change-item',this.checkedItems)
         }
     }
 }

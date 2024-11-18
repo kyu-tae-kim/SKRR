@@ -1,6 +1,7 @@
 <template>
 <div>
-    <button class="btn btn-outline-dark" @click="dosearch">조회</button>
+    <button class="btn btn-outline-dark" @click="dosearch"> 조회 </button>
+    <button @click="doDelete" class="btn btn-danger"> 삭제 </button>
     <br />
     <br />
 
@@ -8,6 +9,7 @@
 :headers = "headers"
 :items = "parentData" 
 @diff-change="changeDiff"
+@change-item ="checkBoxSelected"
 />
 </div>
 </template>
@@ -28,8 +30,8 @@ export default{
                 {title:'구매 SKRR', key:'buy'},
                 {title:'전일대비', key:'diff'},
             ],
-            allData : [],
-        };
+            allData : []
+        }
     },
     setup(){},
     created(){},
@@ -62,6 +64,7 @@ export default{
                 diff : "전일 상승",
             }]
             this.allData = this.parentData
+            this.checkedItems = []
         },
         changeDiff (data) {
             if (data === 'high'){
@@ -80,6 +83,16 @@ export default{
             else {
                 this.parentData = this.allData
             }
+        },
+        checkBoxSelected(data){
+            console.log(data)
+            this.checkedItems = data
+        },
+        doDelete() {
+            this.parentData = this.parentData.filter(
+                (data) => !this.checkedItems.includes(data.exchange)
+            );
+
         }
     }
 }

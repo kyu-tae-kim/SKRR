@@ -97,6 +97,21 @@ component: () => import(/* webpackChunkName: "databinding" */ '../views/DataBind
         name: 'grid',
         component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/GridView.vue')
       }, 
+      {    
+        path: '/slot',
+        name: 'slot',
+        component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/SlotView.vue')
+      },
+      {    
+        path: '/provide',
+        name: 'provide',
+        component: () => import(/* webpackChunkName: "reuse" */ '../views/reuse/RootView.vue')
+      },
+      {    
+        path: '/custom',
+        name: 'custom',
+        component: () => import(/* webpackChunkName: "advenced" */ '../views/advenced/CustomDirectiveView.vue')
+      },  
 ]
 
 const router = createRouter({

@@ -9,7 +9,9 @@
     <router-link to="/watch">Watch</router-link> |
     <!-- <router-link to="/lifecyclehook">LifecycleHook</router-link> | -->
     <router-link to="/page">Page</router-link> |
-    <router-link to="/grid">Grid</router-link> 
+    <router-link to="/slot">Slot</router-link> |
+    <router-link to="/provide">Provide</router-link> |
+    <router-link to="/custom">Custom</router-link> 
     
 
   </nav>
