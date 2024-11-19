@@ -111,7 +111,17 @@ component: () => import(/* webpackChunkName: "databinding" */ '../views/DataBind
         path: '/custom',
         name: 'custom',
         component: () => import(/* webpackChunkName: "advenced" */ '../views/advenced/CustomDirectiveView.vue')
-      },  
+      },
+      // {    
+      //   path: '/mixin',
+      //   name: 'mixin',
+      //   component: () => import(/* webpackChunkName: "advenced" */ '../views/advenced/MixinView.vue')
+      // },
+      {    
+        path: '/plugins',
+        name: 'plugins',
+        component: () => import(/* webpackChunkName: "advenced" */ '../views/advenced/PluginView.vue')
+      },
 ]
 
 const router = createRouter({

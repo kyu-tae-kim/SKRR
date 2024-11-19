@@ -1,22 +1,21 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <!-- <router-link to="/binding">Binding</router-link> |
-    <router-link to="/calculator">Calculator</router-link> | -->
-    <!-- <router-link to="/click">Event</router-link> -->
-    <router-link to="/computed">Computed</router-link> |
-    <router-link to="/watch">Watch</router-link> |
-    <!-- <router-link to="/lifecyclehook">LifecycleHook</router-link> | -->
-    <router-link to="/page">Page</router-link> |
-    <router-link to="/slot">Slot</router-link> |
-    <router-link to="/provide">Provide</router-link> |
-    <router-link to="/custom">Custom</router-link> 
-    
-
-  </nav>
+<div>
+  <HeaderLayoutVue />
+  <div class="container">
   <router-view/>
+  </div>
+  <footer-layout-vue />
+</div>
 </template>
+
+<script>
+import HeaderLayoutVue from '@/components/layout/HeaderLayout.vue'
+import FooterLayoutVue from '@/components/layout/FooterLayout.vue'
+
+export default {
+  components: { HeaderLayoutVue, FooterLayoutVue }
+}
+</script>
 
 <style>
 #app {
