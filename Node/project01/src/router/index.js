@@ -122,6 +122,11 @@ component: () => import(/* webpackChunkName: "databinding" */ '../views/DataBind
         name: 'plugins',
         component: () => import(/* webpackChunkName: "advenced" */ '../views/advenced/PluginView.vue')
       },
+      {    
+        path: '/todo',
+        name: 'todo',
+        component: () => import(/* webpackChunkName: "advenced" */ '../views/advenced/VuexView.vue')
+      },
 ]
 
 const router = createRouter({
