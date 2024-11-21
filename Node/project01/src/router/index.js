@@ -127,6 +127,11 @@ component: () => import(/* webpackChunkName: "databinding" */ '../views/DataBind
         name: 'todo',
         component: () => import(/* webpackChunkName: "advenced" */ '../views/advenced/VuexView.vue')
       },
+      {    
+        path: '/auth',
+        name: 'auth',
+        component: () => import(/* webpackChunkName: "apiconnect" */ '../views/ApiConnect/LoginView.vue')
+      },
 ]
 
 const router = createRouter({

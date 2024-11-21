@@ -4,9 +4,11 @@
     <p>{{ todosCount }}</p>
     <p>{{ doneTodosCount }}</p>
     <p>{{ notDoneTodosCount }}</p>
+    <p>{{ isLoginCheck }}</p>
     <button @click="addItem">추가</button>
     <button @click="removeItem(4)">삭제</button>
     <button @click="doneYN({id:1, done:false})">Change</button>
+    <button @click="removeAll">스토리지삭제</button>
 </div>
 </template>
 
@@ -33,11 +35,16 @@ export default{
         },
         notDoneTodosCount() {
             return this.$store.getters['todo/notDoneTodosCount']
+        },
+        isLoginCheck(){
+            return this.$store.getters['todo/isLogin']
         }
     },
     setup(){},
     created(){},
-    mounted(){},
+    mounted(){
+        this.$store.commit('todo/setUserInfo')
+    },
     unmounted(){},
     methods:{
         addItem() {
@@ -49,6 +56,9 @@ export default{
         },
         doneYN(doneState) {
             this.$store.commit('todo/doneYN', doneState)
+        },
+        removeAll() {
+            this.$store.commit('todo/removeAll')
         }
     }
 }

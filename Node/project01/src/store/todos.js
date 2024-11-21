@@ -1,4 +1,6 @@
-export const todo ={
+import VueCookies from 'vue-cookies'
+
+export const todo = {
 
 namespaced: true,
 
@@ -7,8 +9,12 @@ namespaced: true,
       todos: [
         {id:1, title:'할일 1', done: true},
         {id:2, title:'할일 2', done: false},
-        {id:3, title:'할일 3', done: false}
-      ]
+        {id:3, title:'할일 3', done: false},
+      ],
+      userInfo:{
+        name : 'kyutae',
+        email : 'SKRR',
+      },
     }
   },
   // Computed (state의 저장된 데이터의 computed를 정의하는 공간)
@@ -21,6 +27,13 @@ namespaced: true,
     },
     notDoneTodosCount(state) {
       return state.todos.filter((todo) => !todo.done).length
+    },
+    isLogin(state) {
+      if (VueCookies.get('userInfo')){
+        return true
+      }else {
+        return false
+      }
     }
   },
   // state를 변경할 수 있는 함수가 정의되는 공간
@@ -33,8 +46,16 @@ namespaced: true,
     },
     doneYN(state, doneState) {
       state.todos.filter( (todo) => todo.id === doneState.id)[0].done = doneState.done
-    }
+    },
+    removeAll(state) {
+      state.todos = []
+    },
+    setUserInfo(state) {
+      console.log(state.userInfo)
+      VueCookies.set('userInfo', state.userInfo, '30s')
+    },
   },
+
   // commit (mutations에 정의된 함수를 커밋을 통해서 변경)
   // 비동기 처리
   // $store.dispatch(add)
@@ -43,5 +64,4 @@ namespaced: true,
       commit('add', item)
     }
   },
-
 }
