@@ -1,7 +1,34 @@
 <template>
 <div id="app" class="container mt-5">
     <h1>내 Todo App</h1>
-
+        <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item"
+            :class="{active: index === 0}"
+            v-for="(image, index) in images"
+            :key="index">
+            <img :src="`http://localhost:3000/${image}`"  alt="..."
+            :style="{
+                height: '150px',
+                objectFit:  'cover',
+                width: '100%'
+            }">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
     <div>
             <form @submit.prevent="addTodo" class="input-group">
                 <div class="input-group mb-3">
@@ -79,7 +106,7 @@ export default{
     setup(){},
     created(){
         this.getTodo(),
-        this.getImages(),
+        this.getImages()
     },
     mounted(){},
     unmounted(){},
@@ -126,9 +153,9 @@ export default{
             console.log(this.file)
         },
 
-        async uploadIamage(){
+        async uploadImage(){
             if (!this.file) return;
-
+            
             const formData = new FormData();
             formData.append('image', this.file);
 
@@ -142,6 +169,7 @@ export default{
         async getImages(){
             const response = await axios.get('http://localhost:3000/image');
             this.images = response.data;
+            console.log(this.images)
         }
     }
 }

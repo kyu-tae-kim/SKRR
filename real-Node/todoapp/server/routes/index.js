@@ -27,8 +27,8 @@ router.post('/', (req, res) =>{
 
 router.put('/:id', (req, res)=>{
     const {id} = req.params
-    todos = todos.map(todo=> todo.id == id ? {...todo, ...req.body} : todo)
-    // todos = todos.map(todo=> todo.id === id ? {id:id, title:todo.title, done: req.body.done} : todo)
+    // todos = todos.map(todo=> todo.id == id ? {...todo, ...req.body} : todo)
+    todos = todos.map(todo=> todo.id === id ? {id:id, title:todo.title, done: req.body.done} : todo)
     res.end()
     console.log('Todo Done 업데이트 완료')
     console.log(todos)
