@@ -15,7 +15,7 @@ router.route('/').get().post()
 .get(async (req, res,next) =>{
     try{
         const users = await User.findAll();
-        res.send(users) // json으로 바꾸기
+        res.json(users)
     }catch(err){
         console.error(err)
         next(err)
