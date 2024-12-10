@@ -14,7 +14,7 @@ const Comment = require("../models/Comments");
 router.route('/').get().post()
 .get(async (req, res,next) =>{
     try{
-        const users = await User.findAll();
+        const users = await User.find();
         res.json(users)
     }catch(err){
         console.error(err)
@@ -42,14 +42,10 @@ router.route('/').get().post()
 //id를 입력해서 해당 comments 데이터 가져오기
 router.get('/:id/comments', async (req, res, next) =>{
     try{
-        const comment = await Comment.findAll({
-            include:{
-                model: User,
-                where: {id: req.params.id}
-            },
-        });
-        console.log(comment)
-        res.send(comment)
+        const comments = await Comment.find({
+            commenter: req.params.id
+        }).populate('commenter');
+        res.json(comments)
     }catch(err) {
         console.error(err)
         next(err);
