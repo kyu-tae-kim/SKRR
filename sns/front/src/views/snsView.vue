@@ -1,30 +1,25 @@
 <template>
 <div>
-    <h1>{{result}}</h1>
+    <SignUpVue/>
 </div>
 </template>
 <script>
 import axios from 'axios'
+import SignUpVue from '../components/SignUp.vue'
 export default{ 
     name:'',
-    components:{},
+    components:{SignUpVue},
     data(){
         return{
             result:'',
         };
     },
     setup(){},
-    created(){
-        this.test()
-    },
+    created(){},
     mounted(){},
     unmounted(){},
     methods:{
 
-            async test() {
-                const respones = await axios.get('http://localhost:3000/')
-                this.result = respones.data
-            }
 
     }
 }
